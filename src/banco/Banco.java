@@ -9,9 +9,6 @@ import java.util.Scanner;
 
 public class Banco {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         ContaBancaria santander = new ContaBancaria();
 
@@ -28,10 +25,11 @@ public class Banco {
             System.out.println("3 - Transferir");
             System.out.println("4 - Consultar saldo");
             System.out.println("5 - Alterar título");
-            System.out.println("6 - Extrato");
-            System.out.println("7 - Consultar nome do títular");
+            System.out.println("6 - Consultar nome do títular");
+            System.out.println("7 - Consultar extrato");
             System.out.println("8 - SAIR");
             System.out.print("Escolha uma opção: ");
+            System.out.println("===================");
 
             opcao = scanner.nextInt();
 
@@ -67,22 +65,22 @@ public class Banco {
                     break;
 
                 case 6:
-                    santander.extrato();
-                    break;
-
-                case 7:
                     santander.consultarNome();
                     break;
 
+                case 7:
+                    santander.consultarExtrato();
+                    break;
+
                 case 8:
-                    santander.extrato();
+                    System.out.println("Encerrando o programa...");
                     break;
 
                 default:
                     System.out.println("Opção inválida!");
                     break;
             }
-        } while (opcao != 7);
+        } while (opcao != 8);
 
     }
 

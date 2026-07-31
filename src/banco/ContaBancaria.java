@@ -10,7 +10,7 @@ public class ContaBancaria {
     void depositar(double valor) {
         if (valor > 0) {
             saldo = saldo + valor;
-            extrato = extrato + "Deposito: R$" + valor;
+            extrato = extrato + "Deposito: R$" + valor + "\n";
             System.out.println("O valor depositado é R$:" + valor);
         } else {
             System.out.println("O Valor de deposito invalido!");
@@ -20,7 +20,7 @@ public class ContaBancaria {
     void sacar(double valor) {
         if (valor <= saldo) {
             saldo = saldo - valor;
-            extrato = extrato + "Saque: R$" + valor;
+            extrato = extrato + "Saque: R$" + valor + "\n";
             System.out.println("Valor sacado foi R$: " + valor);
         } else {
             System.out.println("O valor para saque  e maior do que tem de saldo");
@@ -38,7 +38,7 @@ public class ContaBancaria {
     }
 
     void consultarSaldo() {
-        System.out.println("O valor do saldo atual é: " + saldo);
+        System.out.println("O valor do saldo atual é: " + saldo );
     }
 
     void alterarTitular(String novoNome) {
@@ -46,17 +46,17 @@ public class ContaBancaria {
         System.out.println("O nome do titular da conta foi alterado com sucesso para: " + novoNome);
     }
 
-    void extrato() {
-        if(extrato == ""){
-        System.out.println("---------------EXTRATO---------------");
-        System.out.println(extrato);
-        System.out.println("-------------------------------------");
-        }else{
+    void consultarExtrato() {
+        if (extrato.equals("")) {
             System.out.println("Não foi realizado nenhuma operação!!!");
+        } else {
+            System.out.println("---------------EXTRATO---------------");
+            System.out.println(extrato);
+            System.out.println("-------------------------------------");
         }
     }
 
-    void consultarNome(){
+    void consultarNome() {
         System.out.println("Nome do titular é: " + nome);
     }
 }
