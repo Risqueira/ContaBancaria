@@ -1,14 +1,62 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package banco;
 
-/**
- *
- * @author aluno.saolucas
- */
 public class ContaBancaria {
-    
+
+    double valor;
+    double saldo = 0;
+    String nome;
+    String extrato = "";
+
+    void depositar(double valor) {
+        if (valor > 0) {
+            saldo = saldo + valor;
+            extrato = extrato + "Deposito: R$" + valor;
+            System.out.println("O valor depositado é R$:" + valor);
+        } else {
+            System.out.println("O Valor de deposito invalido!");
+        }
+    }
+
+    void sacar(double valor) {
+        if (valor <= saldo) {
+            saldo = saldo - valor;
+            extrato = extrato + "Saque: R$" + valor;
+            System.out.println("Valor sacado foi R$: " + valor);
+        } else {
+            System.out.println("O valor para saque  e maior do que tem de saldo");
+        }
+    }
+
+    void transferir(double valor) {
+        if (valor <= saldo) {
+            saldo = saldo - valor;
+            extrato = extrato + "Deposito: R$" + valor;
+            System.out.println("Valor transferido foi R$: " + valor);
+        } else {
+            System.out.println("O valor de transferencia é maior do que tem de saldo");
+        }
+    }
+
+    void consultarSaldo() {
+        System.out.println("O valor do saldo atual é: " + saldo);
+    }
+
+    void alterarTitular(String novoNome) {
+        nome = novoNome;
+        System.out.println("O nome do titular da conta foi alterado com sucesso para: " + novoNome);
+    }
+
+    void extrato() {
+        if(extrato == ""){
+        System.out.println("---------------EXTRATO---------------");
+        System.out.println(extrato);
+        System.out.println("-------------------------------------");
+        }else{
+            System.out.println("Não foi realizado nenhuma operação!!!");
+        }
+    }
+
+    void consultarNome(){
+        System.out.println("Nome do titular é: " + nome);
+    }
 }
